@@ -3,7 +3,7 @@
 Plugin Name: Tag Viewer
 Description: タグ一覧を表示
 Author: Y.Nagata
-Version: 0.0.0
+Version: 0.0.1
 */
 
 class TagViewer {
@@ -22,8 +22,8 @@ class TagViewer {
 				<table class="wp-list-table widefat fixed striped tags">
 					<thead>
 						<tr>
-							<th scope="col" id="name" class="manage-column column-name column-primary sort<?php print ($orderby == 'name') ? 'ed '.$order : 'able desc' ?>">
-								<a href="/wp-admin/admin.php?page=tag_viewer&orderby=name&order=<?php print ($orderby == 'name' && $order == 'asc') ? 'desc' : 'asc' ?>">
+							<th scope="col" id="name" class="manage-column column-name column-primary sort<?php print (isset($_GET['orderby']) && $orderby == 'name') ? 'ed '.$order : 'able desc' ?>">
+								<a href="/wp-admin/admin.php?page=tag_viewer&orderby=name&order=<?php print (isset($_GET['orderby']) && $orderby == 'name' && $order == 'asc') ? 'desc' : 'asc' ?>">
 									<span><?php print __('Name') ?></span>
 									<span class="sorting-indicator"></span>
 								</a>
